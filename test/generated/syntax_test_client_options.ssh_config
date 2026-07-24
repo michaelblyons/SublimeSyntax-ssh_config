@@ -169,7 +169,7 @@ Host example.com
 #                ^^^^^^ meta.mapping.value - invalid
  FingerprintHash md5
 #^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
-#                ^^^ meta.mapping.value - invalid.illegal
+#                ^^^ meta.mapping.value - invalid
  ForkAfterAuthentication yes
 #^^^^^^^^^^^^^^^^^^^^^^^ meta.mapping.key keyword.other
 #                        ^^^ meta.mapping.value - invalid

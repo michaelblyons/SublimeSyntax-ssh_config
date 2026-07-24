@@ -141,6 +141,7 @@ contexts:
     - include: parameter-proxyjump
     - include: parameter-knownhostscommand
     - include: parameter-remotecommand
+    - include: parameter-crypto
     - include: parameter-with-boolean-values
     - include: parameter-with-boolean-values-plus-ask
     - include: parameter-generic
@@ -164,6 +165,27 @@ contexts:
             - match: '\s+(\S+)'
               captures:
                 1: invalid.illegal.ssh_config
+
+  parameter-crypto:
+    - match: |-
+        (?xi:
+          ^\s*
+          ( CASignatureAlgorithms | Ciphers | HostbasedAcceptedAlgorithms
+          | HostbasedKeyTypes | HostKeyAlgorithms | KexAlgorithms | MACs
+          | PubkeyAcceptedAlgorithms | PubkeyAcceptedKeyTypes
+          )
+          \b[ \t]*(=)?
+        )
+      captures:
+        1: meta.mapping.key.ssh_config keyword.other.ssh_config
+        2: keyword.operator.assignment.ssh_config
+      with_prototype:
+        - include: ssh-key-types
+        - include: ssh-ciphers
+        - include: ssh-kex-algorithms
+        - include: ssh-mac-algorithms
+        - include: crypto-list-operators
+      push: possibly-quoted-value
 
   parameter-proxyjump:
     - match: ^\s*((?i:ProxyJump))\b\s*(=)?
@@ -324,8 +346,7 @@ contexts:
     - match: |-
         (?xi:
           ^\s*
-          (
-            (?: Pubkey | HostBased | Password | ChallengeResponse
+          ((?: Pubkey | HostBased | Password | ChallengeResponse
             | KbdInteractive | (?:Rhosts)? RSA
             ) Authentication # Auth
           | ForwardX11(?:Trusted)? | ClearAllForwardings
@@ -397,11 +418,6 @@ contexts:
     - include: wildcards
     - include: operator-exclamation
     - include: punctuation-comma-sequence
-    - include: ssh-key-types
-    - include: ssh-ciphers
-    - include: ssh-kex-algorithms
-    - include: ssh-mac-algorithms
-    - include: crypto-list-operators
     - include: ipv6-square-bracket
     - include: ip-addresses-with-cidr
     - include: time-values

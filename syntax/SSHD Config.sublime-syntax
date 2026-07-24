@@ -124,6 +124,7 @@ contexts:
     - include: parameter-forcecommand
     - include: parameter-authorizedkeyscommand
     - include: parameter-authorizedprincipalscommand
+    - include: parameter-crypto
     - include: parameter-path-with-tokens
     - include: parameter-routingdomain
     - include: parameter-with-boolean-values
@@ -198,6 +199,27 @@ contexts:
           escape: (?=$)
           embed: scope:source.shell.embedded.ssh.authorizedprincipalscommand
 
+  parameter-crypto:
+    - match: |-
+        (?xi:
+          ^\s*
+          ( CASignatureAlgorithms | Ciphers | HostbasedAcceptedAlgorithms
+          | HostbasedKeyTypes | HostKeyAlgorithms | KexAlgorithms | MACs
+          | PubkeyAcceptedAlgorithms | PubkeyAcceptedKeyTypes
+          )
+          \b[ \t]*(=)?
+        )
+      captures:
+        1: meta.mapping.key.sshd_config keyword.other.sshd_config
+        2: keyword.operator.assignment.sshd_config
+      with_prototype:
+        - include: ssh-key-types
+        - include: ssh-ciphers
+        - include: ssh-kex-algorithms
+        - include: ssh-mac-algorithms
+        - include: crypto-list-operators
+      push: possibly-quoted-value
+
   parameter-path-with-tokens:
     - match: '^\s*((?ix: AuthorizedKeysFile | AuthorizedPrincipalsFile | ChrootDirectory ))\b\s*(=)?'
       captures:
@@ -246,11 +268,6 @@ contexts:
     - include: any
     - match: '\b(?xi: default )\b'
       scope: constant.language.default.sshd_config
-    - include: ssh-key-types
-    - include: ssh-ciphers
-    - include: ssh-kex-algorithms
-    - include: ssh-mac-algorithms
-    - include: crypto-list-operators
     - include: ipv6-square-bracket
     - include: ip-addresses-with-cidr
     - include: time-values

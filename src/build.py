@@ -142,6 +142,7 @@ def build_ssh_option_test():
             continue
 
         key_scope = 'meta.mapping.key keyword.other'
+        val_scope = 'meta.mapping.value - invalid'
         if item in {'Hostname'}:
             key_scope = 'meta.mapping.key keyword.declaration'
 
@@ -152,10 +153,6 @@ def build_ssh_option_test():
         for value in value_list:
             if value in {'...'}:
                 continue
-
-            val_scope = 'meta.mapping.value - invalid'
-            if value in {'md5'}:
-                val_scope = 'meta.mapping.value - invalid.illegal'
 
             test_content.append(f' {item} {value}')
             test_content.append(
