@@ -711,6 +711,11 @@
         - 'yes'
         - 'no'
         - client-specified
+    GSSAPIAllowS4U2Self:
+      values:
+        - 'yes'
+        - 'no'
+        - 15m
     GSSAPIAuthentication:
       details: Enable GSSAPI auth
       values:
@@ -723,6 +728,32 @@
         - 'no'
     GSSAPIDelegateCredentials:
       details: Accept delegated creds from client
+      values:
+        - 'yes'
+        - 'no'
+    GSSAPIEnablek5users:
+      details: Look at <code>.k5users</code> file for GSSAPI
+      values:
+        - 'yes'
+        - 'no'
+    GSSAPIIndicators:
+      details: Test Kerberos ticket for indicators
+      values: hardened,radius,passkey
+    GSSAPIKeyExchange:
+      details: Allow KEX based on GSSAPI
+      values:
+        - 'yes'
+        - 'no'
+    GSSAPIKexAlgorithms:
+      details: Accepted GSSAPI KEX algorithms, by preference
+      values:
+        - ^prepend,to,list
+        - +append,to,list
+        - -remove,from,list
+        - replace,list
+    GSSAPIProxyS4U2Services:
+    GSSAPIStoreCredentialsOnRekey:
+      details: Update creds after re-key
       values:
         - 'yes'
         - 'no'
@@ -813,6 +844,11 @@
         - 'no'
     KerberosTicketCleanup:
       details: Destroy ticket cache on logout
+      values:
+        - 'yes'
+        - 'no'
+    KerberosUniqueCCache:
+    KerberosUseKuserok:
       values:
         - 'yes'
         - 'no'
@@ -1044,6 +1080,7 @@
       values:
         - 'yes'
         - 'no'
+    X11MaxDisplays:
     X11UseLocalhost:
       details: Bind X11 forwarding server to <code>localhost</code> or <code>*</code>
       values:

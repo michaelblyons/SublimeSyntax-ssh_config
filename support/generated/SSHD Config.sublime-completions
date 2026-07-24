@@ -324,6 +324,20 @@
             "details": "Permit remote hosts to connect to ports forwarded for the client"
         },
         {
+            "trigger": "GSSAPIAllowS4U2Self",
+            "contents": "GSSAPIAllowS4U2Self",
+            "annotation": "option",
+            "kind": "keyword",
+            "details": ""
+        },
+        {
+            "trigger": "gssapiallows4u2self",
+            "contents": "GSSAPIAllowS4U2Self ${0:{ yes | no | 15m \\}}",
+            "annotation": "option",
+            "kind": "snippet",
+            "details": ""
+        },
+        {
             "trigger": "GSSAPIAuthentication",
             "contents": "GSSAPIAuthentication",
             "annotation": "option",
@@ -364,6 +378,83 @@
             "annotation": "option",
             "kind": "snippet",
             "details": "Accept delegated creds from client"
+        },
+        {
+            "trigger": "GSSAPIEnablek5users",
+            "contents": "GSSAPIEnablek5users",
+            "annotation": "option",
+            "kind": "keyword",
+            "details": "Look at <code>.k5users</code> file for GSSAPI"
+        },
+        {
+            "trigger": "gssapienablek5users",
+            "contents": "GSSAPIEnablek5users ${0:{ yes | no \\}}",
+            "annotation": "option",
+            "kind": "snippet",
+            "details": "Look at <code>.k5users</code> file for GSSAPI"
+        },
+        {
+            "trigger": "GSSAPIIndicators",
+            "contents": "GSSAPIIndicators",
+            "annotation": "option",
+            "kind": "keyword",
+            "details": "Test Kerberos ticket for indicators"
+        },
+        {
+            "trigger": "gssapiindicators",
+            "contents": "GSSAPIIndicators ${0:hardened,radius,passkey}",
+            "annotation": "option",
+            "kind": "snippet",
+            "details": "Test Kerberos ticket for indicators"
+        },
+        {
+            "trigger": "GSSAPIKeyExchange",
+            "contents": "GSSAPIKeyExchange",
+            "annotation": "option",
+            "kind": "keyword",
+            "details": "Allow KEX based on GSSAPI"
+        },
+        {
+            "trigger": "gssapikeyexchange",
+            "contents": "GSSAPIKeyExchange ${0:{ yes | no \\}}",
+            "annotation": "option",
+            "kind": "snippet",
+            "details": "Allow KEX based on GSSAPI"
+        },
+        {
+            "trigger": "GSSAPIKexAlgorithms",
+            "contents": "GSSAPIKexAlgorithms",
+            "annotation": "option",
+            "kind": "keyword",
+            "details": "Accepted GSSAPI KEX algorithms, by preference"
+        },
+        {
+            "trigger": "gssapikexalgorithms",
+            "contents": "GSSAPIKexAlgorithms ${0:{ ^prepend,to,list | +append,to,list | -remove,from,list | replace,list \\}}",
+            "annotation": "option",
+            "kind": "snippet",
+            "details": "Accepted GSSAPI KEX algorithms, by preference"
+        },
+        {
+            "trigger": "GSSAPIProxyS4U2Services",
+            "contents": "GSSAPIProxyS4U2Services",
+            "annotation": "option",
+            "kind": "keyword",
+            "details": ""
+        },
+        {
+            "trigger": "GSSAPIStoreCredentialsOnRekey",
+            "contents": "GSSAPIStoreCredentialsOnRekey",
+            "annotation": "option",
+            "kind": "keyword",
+            "details": "Update creds after re-key"
+        },
+        {
+            "trigger": "gssapistorecredentialsonrekey",
+            "contents": "GSSAPIStoreCredentialsOnRekey ${0:{ yes | no \\}}",
+            "annotation": "option",
+            "kind": "snippet",
+            "details": "Update creds after re-key"
         },
         {
             "trigger": "GSSAPIStrictAcceptorCheck",
@@ -602,6 +693,27 @@
             "annotation": "option",
             "kind": "snippet",
             "details": "Destroy ticket cache on logout"
+        },
+        {
+            "trigger": "KerberosUniqueCCache",
+            "contents": "KerberosUniqueCCache",
+            "annotation": "option",
+            "kind": "keyword",
+            "details": ""
+        },
+        {
+            "trigger": "KerberosUseKuserok",
+            "contents": "KerberosUseKuserok",
+            "annotation": "option",
+            "kind": "keyword",
+            "details": ""
+        },
+        {
+            "trigger": "kerberosusekuserok",
+            "contents": "KerberosUseKuserok ${0:{ yes | no \\}}",
+            "annotation": "option",
+            "kind": "snippet",
+            "details": ""
         },
         {
             "trigger": "KexAlgorithms",
@@ -1295,6 +1407,13 @@
             "annotation": "option",
             "kind": "snippet",
             "details": "Toggle X11 forwarding"
+        },
+        {
+            "trigger": "X11MaxDisplays",
+            "contents": "X11MaxDisplays",
+            "annotation": "option",
+            "kind": "keyword",
+            "details": ""
         },
         {
             "trigger": "X11UseLocalhost",

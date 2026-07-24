@@ -153,6 +153,11 @@
 #GatewayPorts no
 #@@@@@@@@@@@@ local-definition
 
+ GSSAPIAllowS4U2Self no
+#@@@@@@@@@@@@@@@@@@@ local-definition
+#GSSAPIAllowS4U2Self no
+#@@@@@@@@@@@@@@@@@@@ local-definition
+
  GSSAPIAuthentication no
 #@@@@@@@@@@@@@@@@@@@@ local-definition
 #GSSAPIAuthentication no
@@ -167,6 +172,36 @@
 #@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
 #GSSAPIDelegateCredentials no
 #@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ GSSAPIEnablek5users no
+#@@@@@@@@@@@@@@@@@@@ local-definition
+#GSSAPIEnablek5users no
+#@@@@@@@@@@@@@@@@@@@ local-definition
+
+ GSSAPIIndicators no
+#@@@@@@@@@@@@@@@@ local-definition
+#GSSAPIIndicators no
+#@@@@@@@@@@@@@@@@ local-definition
+
+ GSSAPIKeyExchange no
+#@@@@@@@@@@@@@@@@@ local-definition
+#GSSAPIKeyExchange no
+#@@@@@@@@@@@@@@@@@ local-definition
+
+ GSSAPIKexAlgorithms no
+#@@@@@@@@@@@@@@@@@@@ local-definition
+#GSSAPIKexAlgorithms no
+#@@@@@@@@@@@@@@@@@@@ local-definition
+
+ GSSAPIProxyS4U2Services no
+#@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#GSSAPIProxyS4U2Services no
+#@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ GSSAPIStoreCredentialsOnRekey no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
+#GSSAPIStoreCredentialsOnRekey no
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
 
  GSSAPIStrictAcceptorCheck no
 #@@@@@@@@@@@@@@@@@@@@@@@@@ local-definition
@@ -257,6 +292,16 @@
 #@@@@@@@@@@@@@@@@@@@@@ local-definition
 #KerberosTicketCleanup no
 #@@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ KerberosUniqueCCache no
+#@@@@@@@@@@@@@@@@@@@@ local-definition
+#KerberosUniqueCCache no
+#@@@@@@@@@@@@@@@@@@@@ local-definition
+
+ KerberosUseKuserok no
+#@@@@@@@@@@@@@@@@@@ local-definition
+#KerberosUseKuserok no
+#@@@@@@@@@@@@@@@@@@ local-definition
 
  KexAlgorithms no
 #@@@@@@@@@@@@@ local-definition
@@ -557,6 +602,11 @@
 #@@@@@@@@@@@@@ local-definition
 #X11Forwarding no
 #@@@@@@@@@@@@@ local-definition
+
+ X11MaxDisplays no
+#@@@@@@@@@@@@@@ local-definition
+#X11MaxDisplays no
+#@@@@@@@@@@@@@@ local-definition
 
  X11UseLocalhost no
 #@@@@@@@@@@@@@@@ local-definition

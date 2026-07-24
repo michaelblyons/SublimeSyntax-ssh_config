@@ -254,7 +254,7 @@ contexts:
       push: possibly-quoted-value
 
   parameter-generic:
-    - match: ^\s*([a-zA-Z1]+)\b\s*(=)?
+    - match: ^\s*([a-zA-Z0-9]+)\b\s*(=)?
       captures:
         1: meta.mapping.key.sshd_config keyword.other.sshd_config
         2: keyword.operator.assignment.sshd_config
@@ -314,15 +314,17 @@ variables:
       | ExposeAuthInfo
       | FingerprintHash | ForceCommand
       | GatewayPorts
-      | GSSAPI (?: Authentication | CleanupCredentials | DelegateCredentials
-               | StrictAcceptorCheck )
+      | GSSAPI (?: AllowS4U2Self | Authentication | CleanupCredentials
+               | DelegateCredentials | Enablek5users | Indicators
+               | KexAlgorithms | KeyExchange | ProxyS4U2Services
+               | StoreCredentialsOnRekey | StrictAcceptorCheck )
       | Hostbased (?: AcceptedAlgorithms | AcceptedKeyTypes | Authentication
                   | UsesNameFromPacketOnly )
       | HostCertificate | HostKey | HostKeyAgent | HostKeyAlgorithms
       | IgnoreRhosts | IgnoreUserKnownHosts | Include | IPQoS
       | KbdInteractiveAuthentication
       | Kerberos (?: Authentication | GetAFSToken | OrLocalPasswd
-                 | TicketCleanup )
+                 | TicketCleanup | UniqueCCache | UseKuserok )
       | KexAlgorithms | KeyRegenerationInterval
       | ListenAddress | LoginGraceTime | LogLevel | LogVerbose
       | MACs | Match | MaxAuthTries | MaxSessions | MaxStartups | ModuliFile
@@ -344,7 +346,8 @@ variables:
       | UnusedConnectionTimeout | UseDNS | UseLogin | UsePAM
       | UsePrivilegeSeparation
       | VersionAddendum
-      | X11DisplayOffset | X11Forwarding | X11UseLocalhost | XAuthLocation
+      | X11DisplayOffset | X11Forwarding | X11MaxDisplays | X11UseLocalhost
+      | XAuthLocation
     )\b
   parameters_boolean: |-
     \b(?xi:
