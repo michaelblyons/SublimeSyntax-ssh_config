@@ -357,7 +357,7 @@ variables:
       | GSSAPIAuthentication | GSSAPICleanupCredentials
       | GSSAPIStrictAcceptorCheck
       | HostbasedAuthentication | HostbasedUsesNameFromPacketOnly
-      | IgnoreRhosts | IgnoreUserKnownHosts
+      | IgnoreUserKnownHosts
       | KbdInteractiveAuthentication | KerberosAuthentication
       | KerberosGetAFSToken | KerberosOrLocalPasswd
       | KerberosTicketCleanup

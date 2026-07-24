@@ -275,6 +275,13 @@
             "details": "Disables all forwarding features"
         },
         {
+            "trigger": "disableforwarding",
+            "contents": "DisableForwarding ${0:{ yes | no \\}}",
+            "annotation": "option",
+            "kind": "snippet",
+            "details": "Disables all forwarding features"
+        },
+        {
             "trigger": "ExposeAuthInfo",
             "contents": "ExposeAuthInfo",
             "annotation": "option",
@@ -577,7 +584,7 @@
         },
         {
             "trigger": "ignorerhosts",
-            "contents": "IgnoreRhosts ${0:{ yes | no \\}}",
+            "contents": "IgnoreRhosts ${0:{ yes | no | shosts-only \\}}",
             "annotation": "option",
             "kind": "snippet",
             "details": "Skip <code>.rhosts</code> and <code>.shosts</code> files in <code>HostbasedAuthentication</code>"
@@ -871,7 +878,7 @@
         },
         {
             "trigger": "permitlisten",
-            "contents": "PermitListen ${0:[host:]port}",
+            "contents": "PermitListen ${0:{ [host:]port | any | none \\}}",
             "annotation": "option",
             "kind": "snippet",
             "details": "Allowlist remote (<code>-R</code>) port forwarding"
@@ -885,7 +892,7 @@
         },
         {
             "trigger": "permitopen",
-            "contents": "PermitOpen ${1:host}:${2:port}",
+            "contents": "PermitOpen ${0:{ host:port | any | none \\}}",
             "annotation": "option",
             "kind": "snippet",
             "details": "Allowlist local (<code>-L</code>) port forwarding"
@@ -1157,6 +1164,13 @@
             "details": "Minimum RSA key size in bits"
         },
         {
+            "trigger": "requiredrsasize",
+            "contents": "RequiredRSASize ${0:2048}",
+            "annotation": "option",
+            "kind": "snippet",
+            "details": "Minimum RSA key size in bits"
+        },
+        {
             "trigger": "RevokedKeys",
             "contents": "RevokedKeys",
             "annotation": "option",
@@ -1277,7 +1291,7 @@
         },
         {
             "trigger": "subsystem",
-            "contents": "Subsystem ${0:sftp    /usr/libexec/sftp-server}",
+            "contents": "Subsystem ${0:sftp /usr/libexec/sftp-server}",
             "annotation": "option",
             "kind": "snippet",
             "details": "Configure an external subsystem (e.g. file transfer daemon)"

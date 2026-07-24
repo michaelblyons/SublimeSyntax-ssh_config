@@ -686,6 +686,7 @@
       values:
         - 'yes'
         - 'no'
+        # - delayed
     DenyGroups:
       details: Denylist user groups with patterns
     DenyUsers:
@@ -693,6 +694,9 @@
       values: mysql,*@evil.example.com
     DisableForwarding:
       details: Disables all forwarding features
+      values:
+        - 'yes'
+        - 'no'
     ExposeAuthInfo:
       details: Write a temp file in <code>SSH_USER_AUTH</code> with auth details
       values:
@@ -807,6 +811,7 @@
       values:
         - 'yes'
         - 'no'
+        - shosts-only
     IgnoreUserKnownHosts:
       details: Ignore <code>~/.ssh/known_hosts</code> in favor of <code>/etc/ssh/known_hosts</code>
       values:
@@ -905,10 +910,16 @@
         - 'no'
     PermitListen:
       details: Allowlist remote (<code>-R</code>) port forwarding
-      values: '[host:]port'
+      values:
+        - '[host:]port'
+        - any
+        - none
     PermitOpen:
       details: Allowlist local (<code>-L</code>) port forwarding
-      values: '${1:host}:${2:port}'
+      values:
+        - 'host:port'
+        - any
+        - none
     PermitRootLogin:
       details: Set behavior for login as <code>root</code>
       values:
@@ -1008,6 +1019,7 @@
       values: 2G 3h
     RequiredRSASize:
       details: Minimum RSA key size in bits
+      values: 2048
     RevokedKeys:
       details: File(s) containing revoked public keys
     RDomain:
@@ -1039,7 +1051,7 @@
         - 'no'
     Subsystem:
       details: Configure an external subsystem (e.g. file transfer daemon)
-      values: sftp    /usr/libexec/sftp-server
+      values: sftp /usr/libexec/sftp-server
     SyslogFacility:
       details: Facility code used when logging <code>sshd</code> messages
       values:
