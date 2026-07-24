@@ -218,6 +218,7 @@ contexts:
         - include: ssh-kex-algorithms
         - include: ssh-mac-algorithms
         - include: crypto-list-operators
+        - include: punctuation-comma-sequence
       push: possibly-quoted-value
 
   parameter-path-with-tokens:
