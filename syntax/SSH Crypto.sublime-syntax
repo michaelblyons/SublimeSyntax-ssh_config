@@ -345,6 +345,7 @@ variables:
     | dsa3072\-sha256@libassh\.org
     | dsa2048\-sha256@libassh\.org
     | dsa2048\-sha224@libassh\.org
+    | draft\-miller\-sshm\-mldsa44\-ed25519\-composite\-sigs
     )
   key_types_deprec: |-
     (?x:

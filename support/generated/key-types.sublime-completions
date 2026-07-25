@@ -2,6 +2,16 @@
     "scope": "(source.ssh_config | source.sshd_config) & meta.mapping.value - meta.mapping.value.host-aliases - source source, (text.authorized_keys | text.known_hosts) - comment - string",
     "completions": [
         {
+            "trigger": "draft-miller-sshm-mldsa44-ed25519-composite-sigs",
+            "contents": "draft-miller-sshm-mldsa44-ed25519-composite-sigs",
+            "annotation": "key type",
+            "kind": [
+                "type",
+                "k",
+                "Key type"
+            ]
+        },
+        {
             "trigger": "dsa2048-sha224@libassh.org",
             "contents": "dsa2048-sha224@libassh.org",
             "annotation": "key type",

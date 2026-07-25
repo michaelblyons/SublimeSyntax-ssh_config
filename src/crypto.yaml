@@ -18,6 +18,7 @@ key-types:
   active:
     scope: support.type.key-type.ssh.crypto
     items:
+      - draft-miller-sshm-mldsa44-ed25519-composite-sigs
       - dsa2048-sha224@libassh.org
       - dsa2048-sha256@libassh.org
       - dsa3072-sha256@libassh.org
