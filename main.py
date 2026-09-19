@@ -7,11 +7,10 @@ from os.path import expandvars
 def get_file_location(identifier: str) -> str:
     settings = load_settings('SSH Config.sublime-settings')
     user_setting: dict[str, str] | None = settings.get('file_locations')
-    if user_setting:
-        if identifier in user_setting:
-            return expandvars(user_setting[identifier])
-        else:
-            print('Could not find {} key in "file_locations"'.format(identifier))
+    if user_setting and identifier in user_setting and user_setting[identifier]:
+        return expandvars(user_setting[identifier])
+
+    # Use the platform fallback
     default_settings: dict[str, dict[str, str]] = settings.get('default_file_locations')
     setting: dict[str, str] = default_settings[platform()]
     return expandvars(setting[identifier])
